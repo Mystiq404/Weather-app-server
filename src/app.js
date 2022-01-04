@@ -5,8 +5,10 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 
-//define parths for Express config
 const app = express()
+const port = process.env.PORT || 3000
+
+//define parths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
@@ -115,6 +117,9 @@ app.get('/weather', (req, res) => {
     res.send({ location: 'Nainital', forecast: 'Its 3 degree outside' })
 })
 
-app.listen(3000, () => {
-    console.log('Server is on port 3000')
+
+
+
+app.listen(port, () => {
+    console.log('Server is on port' + port)
 })
